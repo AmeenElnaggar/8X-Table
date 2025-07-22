@@ -1,12 +1,34 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ReusableDataTable } from './components/reusable-data-table/reusable-data-table';
+import { TableDataService } from './services/table-data.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ReusableDataTable],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('Test-Project');
+  private tableDataService = inject(TableDataService);
+
+  data = this.tableDataService.data;
+  columns = this.tableDataService.columns;
+  loading = this.tableDataService.loading;
+  error = this.tableDataService.error;
+
+  onCreate(data: any) {
+    this.tableDataService.create(data);
+  }
+
+  onUpdate(data: any) {
+    this.tableDataService.update(data);
+  }
+
+  onDelete(id: number) {
+    this.tableDataService.delete(id);
+  }
+
+  onRowSelect(data: any) {
+    console.log('Row selected:', data);
+  }
 }

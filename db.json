@@ -1,0 +1,17 @@
+{
+  "users": [
+    { "id": 1, "name": "Ahmed Youssef", "email": "ahmed.youssef@example.com" },
+    { "id": 2, "name": "Sara Ahmed", "email": "sara.ahmed@example.com" },
+    { "id": 3, "name": "Omar Mostafa", "email": "omar.mostafa@example.com" },
+    { "id": 4, "name": "Nour Hany", "email": "nour.hany@example.com" },
+    { "id": 5, "name": "Yasmine Khaled", "email": "yasmine.k@example.com" },
+    { "id": 6, "name": "Hassan Ali", "email": "hassan.ali@example.com" },
+    { "id": 7, "name": "Laila Samir", "email": "laila.samir@example.com" },
+    { "id": 8, "name": "Mahmoud Tarek", "email": "mahmoud.tarek@example.com" },
+    { "id": 9, "name": "Rana Mohamed", "email": "rana.m@example.com" },
+    { "id": 10, "name": "Ameen Elnaggar", "email": "ameen@example.com" },
+    { "id": 11, "name": "Marwan Fathy", "email": "marwan.f@example.com" },
+    { "id": 12, "name": "Dina Adel", "email": "dina.adel@example.com" },
+    { "id": 13, "name": "Kareem Nabil", "email": "kareem.n@example.com" }
+  ]
+}
