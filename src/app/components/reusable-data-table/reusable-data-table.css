@@ -1,0 +1,398 @@
+/* Table Header */
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.custom-add-button {
+  background-color: #10b981; /* Emerald-500 */
+  border: none;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-add-button:hover {
+  background-color: #059669; /* Emerald-600 */
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.custom-search-input {
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  min-width: 220px;
+  background-color: white;
+}
+
+::ng-deep .p-input-icon-left > i {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  position: absolute;
+}
+
+/* Table */
+::ng-deep .p-datatable {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", sans-serif;
+}
+
+::ng-deep .p-datatable-wrapper {
+  border: none;
+}
+
+::ng-deep .p-datatable-table {
+  background-color: #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+
+::ng-deep .p-datatable thead > tr > th,
+::ng-deep .p-datatable tbody > tr > td {
+  padding: 12px 8px;
+  border: 1px solid #f1f1f1;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+}
+
+::ng-deep .p-datatable-thead > tr > th {
+  background-color: #f3f4f6;
+  color: #111827;
+  font-weight: 600;
+}
+
+::ng-deep .p-datatable-tbody > tr > td {
+  color: #374151;
+  background-color: #fff;
+  font-weight: 400;
+}
+
+::ng-deep .p-datatable-tbody > tr:nth-child(even) > td {
+  background-color: #f9fafb;
+}
+
+::ng-deep .p-datatable-tbody > tr:hover > td {
+  background-color: #eef2ff;
+}
+::ng-deep .p-button-text {
+  padding: 6px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep .p-button-text:hover {
+  background-color: #e0e7ff;
+}
+
+::ng-deep .pi-pencil {
+  color: rgb(38, 131, 207);
+}
+
+::ng-deep .pi-trash {
+  color: rgb(207, 49, 49);
+}
+
+/* Dialog */
+
+::ng-deep .p-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+::ng-deep .p-dialog-header {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937; /* slate-800 */
+  background-color: #f9fafb;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+::ng-deep .p-dialog-content {
+  padding: 1.5rem;
+  background-color: #ffffff;
+}
+
+::ng-deep .p-dialog-footer {
+  padding: 1.2rem 1.5rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  text-align: right;
+}
+
+::ng-deep .p-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .p-field label {
+  font-weight: 500;
+  color: #374151; /* slate-700 */
+  margin-bottom: 0.5rem;
+}
+
+::ng-deep .p-inputtext {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db; /* gray-300 */
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+::ng-deep .p-inputtext:focus {
+  border-color: #6366f1; /* indigo-500 */
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+::ng-deep .p-button {
+  min-width: 100px;
+  margin-left: 0.5rem;
+}
+
+::ng-deep .pi-check {
+  color: rgb(44, 197, 103);
+}
+
+::ng-deep .pi-times {
+  color: rgb(223, 49, 18);
+}
+
+/* Toast */
+::ng-deep .p-toast {
+  z-index: 9999;
+  top: 1rem;
+  right: 1rem;
+  width: 320px;
+}
+
+::ng-deep .p-toast-message {
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 1rem;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid;
+}
+
+::ng-deep .p-toast-message-success {
+  background-color: #ffffff;
+  color: #16a34a; /* green-600 */
+  border-color: #16a34a;
+}
+
+::ng-deep .p-toast-message-error {
+  background-color: #ffffff;
+  color: #dc2626; /* red-600 */
+  border-color: #dc2626;
+}
+
+::ng-deep .p-toast-icon-close {
+  color: #6b7280; /* gray-500 */
+}
+
+::ng-deep .p-toast-summary {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+::ng-deep .p-toast-detail {
+  font-size: 14px;
+  color: #374151; /* slate-700 */
+}
+
+/* Delete Dialog */
+::ng-deep .p-confirmdialog-icon {
+  margin-right: 5px;
+  color: #dc2626;
+}
+
+::ng-deep .p-confirmdialog-message {
+  color: #dc2626;
+}
+
+::ng-deep .p-dialog .p-inputtext {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+::ng-deep .p-dialog .p-inputtext:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px;
+}
+
+::ng-deep .p-dialog label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+::ng-deep .p-dialog .p-field {
+  margin-bottom: 1rem;
+}
+
+/* Paginator */
+
+/* 📦 شكل عام للـ paginator */
+::ng-deep .p-paginator {
+  padding: 1rem;
+  background-color: #f9fafb; /* خلفية فاتحة */
+  border-top: 1px solid #e5e7eb; /* خط خفيف أعلى */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 🔢 أزرار الأرقام */
+::ng-deep .p-paginator .p-paginator-page {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  color: #374151; /* Slate */
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* ✅ الزرار النشط */
+::ng-deep .p-paginator .p-paginator-page.p-highlight {
+  background-color: #3b82f6; /* Blue */
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* ⏮️ أزرار التالي والسابق */
+::ng-deep .p-paginator .p-paginator-first,
+::ng-deep .p-paginator .p-paginator-prev,
+::ng-deep .p-paginator .p-paginator-next,
+::ng-deep .p-paginator .p-paginator-last {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  color: #6b7280; /* Gray-600 */
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+::ng-deep .p-paginator .p-paginator-first:hover,
+::ng-deep .p-paginator .p-paginator-prev:hover,
+::ng-deep .p-paginator .p-paginator-next:hover,
+::ng-deep .p-paginator .p-paginator-last:hover,
+::ng-deep .p-paginator .p-paginator-page:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+  border-color: #9ca3af;
+}
+
+::ng-deep .p-select {
+  background-color: #f1f5f9; /* لون خلفية هادئ */
+  color: #1f2937; /* رمادي غامق */
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1; /* حواف خفيفة */
+  transition: all 0.2s ease;
+}
+
+::ng-deep .p-select:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+  cursor: pointer;
+}
+
+::ng-deep .p-select-list {
+  background-color: #ffffff; /* أبيض نضيف */
+  border: 1px solid #3b82f6; /* حدود بلون أزرق شيك */
+  border-radius: 8px;
+  padding: 6px 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.3s ease;
+  z-index: 9999; /* تأكيد إنها فوق العناصر */
+}
+
+::ng-deep .p-select-option {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+::ng-deep .p-select-option:hover {
+  background-color: #e0f2fe;
+  color: #0c4a6e;
+}
+
+/* العنصر المختار */
+::ng-deep .p-select-option-selected {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* لما يكون في focus */
+::ng-deep .p-select-option.p-focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+}
+::ng-deep .p-paginator-page-selected {
+  background-color: #3b82f6 !important; /* أزرق شيك */
+  color: #ffffff !important; /* خط أبيض */
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+::ng-deep .p-datatable-filter-add-rule-button {
+  display: none;
+}
+
+::ng-deep .p-datatable-filter-operator-dropdown {
+  display: none;
+}
+
+::ng-deep .p-datatable-filter-overlay {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  min-width: 200px;
+  z-index: 1000;
+}

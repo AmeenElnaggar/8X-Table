@@ -24,7 +24,7 @@ export class App {
     this.tableDataService.update(data);
   }
 
-  onDelete(id: number) {
+  onDelete(id: any) {
     this.tableDataService.delete(id);
   }
 

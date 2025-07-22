@@ -1,1 +1,156 @@
-<p>reusable-data-table works!</p>
+<!-- Message Notfication -->
+<p-toast></p-toast>
+
+<!-- Table Header for Add and Filter-->
+<div class="table-header">
+  <button
+    pButton
+    label="New Record"
+    icon="pi pi-plus"
+    class="custom-add-button"
+    (click)="showCreateDialog()"
+  ></button>
+
+  <span class="p-input-icon-left search-wrapper">
+    <i class="pi pi-search"></i>
+    <input
+      pInputText
+      type="text"
+      placeholder="Search..."
+      (input)="onFilterGlobal($event, dt)"
+      class="custom-search-input"
+    />
+  </span>
+</div>
+
+<!-- Table  -->
+<p-table
+  #dt
+  [value]="data()"
+  [resizableColumns]="true"
+  [responsiveLayout]="'scroll'"
+  [scrollable]="true"
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 20, 50]"
+  [globalFilterFields]="['name', 'email', 'code']"
+>
+  <!-- Table Header -->
+  <ng-template pTemplate="header">
+    <tr>
+      @for (col of columns(); track col.field) {
+      <th [pSortableColumn]="col.sortable ? col.field : undefined">
+        {{ col.header }}
+        @if (col.sortable) {
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+        } @if (col.filterable) {
+        <p-columnFilter
+          type="text"
+          [field]="col.field"
+          placeholder="Filter by {{ col.header }}"
+          ariaLabel="Filter {{ col.header }}"
+          display="menu"
+        ></p-columnFilter>
+        }
+      </th>
+      }
+    </tr>
+  </ng-template>
+
+  <!-- Table Body -->
+  <ng-template #body let-record>
+    <tr>
+      @for (col of columns(); track $index) { @if (col.field === 'actions') {
+      <td>
+        <button
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-text p-button-sm text-primary"
+          (click)="showUpdateDialog(record)"
+        ></button>
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-text p-button-sm text-danger"
+          (click)="confirmDelete(record.id)"
+        ></button>
+      </td>
+      } @else {
+      <td>{{ record[col.field] }}</td>
+      } }
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- Create Dialog-->
+<p-dialog
+  header="Create New Record"
+  [(visible)]="displayCreateDialog"
+  [modal]="true"
+>
+  <div class="p-field">
+    <label for="name">Name</label>
+    <input pInputText id="name" [(ngModel)]="newRecord().name" />
+  </div>
+  <div class="p-field">
+    <label for="email">Email</label>
+    <input pInputText id="email" [(ngModel)]="newRecord().email" />
+  </div>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      label="Cancel"
+      icon="pi pi-times"
+      (click)="hideCreateDialog()"
+    ></button>
+    <button
+      pButton
+      label="Save"
+      icon="pi pi-check"
+      (click)="saveNewRecord()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<!-- Update Dialog -->
+<p-dialog
+  header="Update Record"
+  [(visible)]="displayUpdateDialog"
+  [modal]="true"
+>
+  <div class="p-field">
+    <label for="update-name">Name</label>
+    <input
+      pInputText
+      id="update-name"
+      *ngIf="selectedRecord() as record"
+      [(ngModel)]="record.name"
+    />
+  </div>
+  <div class="p-field">
+    <label for="update-email">Email</label>
+    <input
+      pInputText
+      id="update-email"
+      *ngIf="selectedRecord() as record"
+      [(ngModel)]="record.email"
+    />
+  </div>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      label="Cancel"
+      icon="pi pi-times"
+      (click)="hideUpdateDialog()"
+    ></button>
+    <button
+      pButton
+      label="Save"
+      icon="pi pi-check"
+      (click)="saveUpdatedRecord()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<!-- Delete Dialog -->
+<p-confirmDialog></p-confirmDialog>

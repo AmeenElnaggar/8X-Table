@@ -5,7 +5,7 @@ import {
   Injectable,
   signal,
 } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { IntegrationDataService } from './integration-data.service';
 import { ColumnDefinition } from '../interfaces/column.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -17,17 +17,26 @@ export class TableDataService {
 
   private dataSignal = signal<any[]>([]);
   private columnsSignal = signal<ColumnDefinition[]>([
-    { field: 'id', header: 'ID', sortable: true },
-    { field: 'name', header: 'Name', sortable: true, filterable: true },
-    { field: 'email', header: 'Email', sortable: true, filterable: true },
+    { field: 'code', header: 'Code', sortable: true },
+    { field: 'name', header: 'Name', sortable: false, filterable: true },
+    { field: 'email', header: 'Email', sortable: false, filterable: true },
+    { field: 'actions', header: 'Actions' },
   ]);
   private loadingSignal = signal<boolean>(false);
   private errorSignal = signal<string | null>(null);
+  private displayCreateDialogSignal = signal<boolean>(false);
+  private displayUpdateDialogSignal = signal<boolean>(false);
+  private newRecordSignal = signal<any>({ code: '', name: '', email: '' });
+  private selectedRecordSignal = signal<any>(null);
 
   public data = computed(() => this.dataSignal());
   public columns = computed(() => this.columnsSignal());
   public loading = computed(() => this.loadingSignal());
   public error = computed(() => this.errorSignal());
+  public displayCreateDialog = computed(() => this.displayCreateDialogSignal());
+  public displayUpdateDialog = computed(() => this.displayUpdateDialogSignal());
+  public newRecord = computed(() => this.newRecordSignal());
+  public selectedRecord = computed(() => this.selectedRecordSignal());
 
   constructor() {
     this.loadData();
@@ -44,14 +53,17 @@ export class TableDataService {
     operation
       .pipe(
         catchError((err) => {
+          console.log(err);
           this.errorSignal.set(errorMessage);
           this.loadingSignal.set(false);
           return of(null);
         }),
+
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe({
         next: (result) => {
+          console.log(result);
           if (isGetData) {
             this.dataSignal.set(result ?? []);
           }
@@ -92,4 +104,6 @@ export class TableDataService {
       'Failed to delete record'
     );
   }
+
+  // dialog
 }

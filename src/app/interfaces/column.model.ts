@@ -3,4 +3,5 @@ export interface ColumnDefinition {
   header: string;
   sortable?: boolean;
   filterable?: boolean;
+  filterValue?: string;
 }
