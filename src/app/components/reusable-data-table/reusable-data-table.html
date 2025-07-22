@@ -10,14 +10,13 @@
     class="custom-add-button"
     (click)="showCreateDialog()"
   ></button>
-
   <span class="p-input-icon-left search-wrapper">
     <i class="pi pi-search"></i>
     <input
       pInputText
       type="text"
       placeholder="Search..."
-      (input)="onFilterGlobal($event, dt)"
+      (input)="onFilterGlobal($event)"
       class="custom-search-input"
     />
   </span>
@@ -33,7 +32,7 @@
   [paginator]="true"
   [rows]="10"
   [rowsPerPageOptions]="[10, 20, 50]"
-  [globalFilterFields]="['name', 'email', 'code']"
+  [globalFilterFields]="['name', 'email', 'id']"
 >
   <!-- Table Header -->
   <ng-template pTemplate="header">
@@ -85,16 +84,16 @@
 <!-- Create Dialog-->
 <p-dialog
   header="Create New Record"
-  [(visible)]="displayCreateDialog"
+  [visible]="displayCreateDialog()"
   [modal]="true"
 >
   <div class="p-field">
     <label for="name">Name</label>
-    <input pInputText id="name" [(ngModel)]="newRecord().name" />
+    <input pInputText id="name" [(ngModel)]="newRecord()['name']" />
   </div>
   <div class="p-field">
     <label for="email">Email</label>
-    <input pInputText id="email" [(ngModel)]="newRecord().email" />
+    <input pInputText id="email" [(ngModel)]="newRecord()['email']" />
   </div>
   <ng-template pTemplate="footer">
     <button
@@ -115,7 +114,7 @@
 <!-- Update Dialog -->
 <p-dialog
   header="Update Record"
-  [(visible)]="displayUpdateDialog"
+  [visible]="displayUpdateDialog()"
   [modal]="true"
 >
   <div class="p-field">

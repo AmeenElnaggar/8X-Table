@@ -19,7 +19,7 @@ export class IntegrationDataService {
     return this.httpClient.put(`${this.apiUrl}/${data.id}`, data);
   }
 
-  delete(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+  delete(data: any): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/${data}`);
   }
 }
