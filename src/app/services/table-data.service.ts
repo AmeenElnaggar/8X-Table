@@ -47,7 +47,10 @@ export class TableDataService {
 
   private isValidRecord(record: any): boolean {
     return (
-      record && Object.keys(record).every((key) => record[key]?.trim() !== '')
+      record &&
+      Object.keys(record).every((key) => {
+        return record[key]?.toString().trim() !== '';
+      })
     );
   }
 
