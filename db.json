@@ -41,140 +41,152 @@
       "title": "Wireless Mouse",
       "category": "Accessories",
       "price": 25.99,
-      "available": true
+      "available": true,
+      "id": "3400"
     },
     {
       "code": "P002",
       "title": "Mechanical Keyboard",
       "category": "Accessories",
       "price": 89.5,
-      "available": false
+      "available": false,
+      "id": "cdbd"
     },
     {
       "code": "P003",
       "title": "Gaming Monitor",
       "category": "Monitors",
       "price": 229.99,
-      "available": true
+      "available": true,
+      "id": "776f"
     },
     {
       "code": "P004",
       "title": "Laptop Stand",
       "category": "Furniture",
       "price": 32,
-      "available": true
+      "available": true,
+      "id": "269f"
     },
     {
       "code": "P005",
       "title": "Noise Cancelling Headphones",
       "category": "Audio",
       "price": 120.75,
-      "available": false
-    },
-    {
-      "code": "P006",
-      "title": "USB-C Hub",
-      "category": "Accessories",
-      "price": 45.25,
-      "available": true
+      "available": false,
+      "id": "e2f4"
     },
     {
       "code": "P007",
       "title": "Webcam 1080p",
       "category": "Cameras",
-      "price": 65.9,
-      "available": true
+      "price": "65.977",
+      "available": true,
+      "id": "ea29"
     },
     {
       "code": "P008",
       "title": "Ergonomic Chair",
       "category": "Furniture",
       "price": 199.99,
-      "available": true
+      "available": true,
+      "id": "2e48"
     },
     {
       "code": "P009",
       "title": "Smart Light Bulb",
       "category": "Smart Home",
       "price": 18,
-      "available": false
+      "available": false,
+      "id": "4aff"
     },
     {
       "code": "P010",
       "title": "Bluetooth Speaker",
       "category": "Audio",
       "price": 59.95,
-      "available": true
+      "available": true,
+      "id": "ee67"
     },
     {
       "code": "P011",
       "title": "Portable SSD 1TB",
       "category": "Storage",
-      "price": 135,
-      "available": true
+      "price": "135",
+      "available": true,
+      "id": "8556"
     },
     {
       "code": "P012",
       "title": "Drawing Tablet",
       "category": "Design",
       "price": 85.49,
-      "available": false
+      "available": false,
+      "id": "27b7"
     },
     {
       "code": "P013",
       "title": "Laser Printer",
       "category": "Printers",
       "price": 180.99,
-      "available": true
+      "available": true,
+      "id": "820d"
     },
     {
       "code": "P014",
       "title": "Wi-Fi Router",
       "category": "Networking",
       "price": 72,
-      "available": true
+      "available": true,
+      "id": "8fed"
     },
     {
       "code": "P015",
       "title": "HDMI Cable",
       "category": "Accessories",
       "price": 12.5,
-      "available": true
+      "available": true,
+      "id": "4bb0"
     },
     {
       "code": "P016",
       "title": "External Monitor Arm",
       "category": "Furniture",
       "price": 48.75,
-      "available": false
+      "available": false,
+      "id": "b22e"
     },
     {
       "code": "P017",
       "title": "Desk Lamp",
       "category": "Furniture",
       "price": 27.9,
-      "available": true
+      "available": true,
+      "id": "1d02"
     },
     {
       "code": "P018",
       "title": "Smart Plug",
       "category": "Smart Home",
       "price": 14.95,
-      "available": true
+      "available": true,
+      "id": "92cd"
     },
     {
       "code": "P019",
       "title": "Stylus Pen",
       "category": "Accessories",
       "price": 29.99,
-      "available": true
+      "available": true,
+      "id": "27c7"
     },
     {
       "code": "P020",
       "title": "Graphic Card RTX 4070",
       "category": "Hardware",
       "price": 599,
-      "available": false
+      "available": false,
+      "id": "f6a0"
     }
   ]
 }

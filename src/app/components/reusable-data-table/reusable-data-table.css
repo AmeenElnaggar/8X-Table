@@ -396,3 +396,31 @@
   min-width: 200px;
   z-index: 1000;
 }
+
+.custom-loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #d3d3d3;
+  border-top: 5px solid #6c63ff; /* اللون الأساسي */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

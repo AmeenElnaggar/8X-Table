@@ -1,6 +1,12 @@
 <!-- Message Notfication -->
 <p-toast></p-toast>
 
+@if (loading()) {
+<div class="custom-loader-overlay">
+  <div class="custom-loader"></div>
+</div>
+}
+
 <!-- Table Header for Add and Filter-->
 <div class="table-header">
   <button

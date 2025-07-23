@@ -10,7 +10,6 @@ import { Table, TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +27,6 @@ import { ColumnDefinition } from '../../interfaces/column.model';
     DialogModule,
     ConfirmDialogModule,
     ToastModule,
-    ProgressSpinnerModule,
     ButtonModule,
     InputTextModule,
     FormsModule,
@@ -54,6 +52,7 @@ export class ReusableDataTable {
   newRecord = this.tableDataService.newRecord;
   selectedRecord = this.tableDataService.selectedRecord;
   globalFilterFields = this.tableDataService.globalFilterFields;
+  loading = this.tableDataService.loading;
 
   table = viewChild.required<Table>('dt');
 
@@ -66,7 +65,6 @@ export class ReusableDataTable {
   }
 
   showUpdateDialog(record: any) {
-    console.log(record);
     this.tableDataService.showUpdateDialog(record);
   }
 
