@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { ReusableDataTable } from './components/reusable-data-table/reusable-data-table';
 import { TableDataService } from './services/table-data.service';
 

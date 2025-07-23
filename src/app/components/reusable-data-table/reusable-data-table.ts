@@ -1,4 +1,11 @@
-import { Component, inject, input, output, ViewChild } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  output,
+  viewChild,
+  ViewChild,
+} from '@angular/core';
 import { Table, TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -46,8 +53,9 @@ export class ReusableDataTable {
   displayUpdateDialog = this.tableDataService.displayUpdateDialog;
   newRecord = this.tableDataService.newRecord;
   selectedRecord = this.tableDataService.selectedRecord;
+  globalFilterFields = this.tableDataService.globalFilterFields;
 
-  @ViewChild('dt') table!: Table;
+  table = viewChild.required<Table>('dt');
 
   showCreateDialog() {
     this.tableDataService.showCreateDialog();
@@ -58,6 +66,7 @@ export class ReusableDataTable {
   }
 
   showUpdateDialog(record: any) {
+    console.log(record);
     this.tableDataService.showUpdateDialog(record);
   }
 
@@ -83,6 +92,6 @@ export class ReusableDataTable {
 
   onFilterGlobal(event: Event) {
     const input = event.target as HTMLInputElement;
-    this.table.filterGlobal(input.value, 'contains');
+    this.table().filterGlobal(input.value, 'contains');
   }
 }

@@ -6,7 +6,7 @@ import {
   Injectable,
   signal,
 } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { IntegrationDataService } from './integration-data.service';
 import { ColumnDefinition } from '../interfaces/column.model';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -20,12 +20,7 @@ export class TableDataService {
   private confirmationService = inject(ConfirmationService);
 
   private dataSignal = signal<any[]>([]);
-  private columnsSignal = signal<ColumnDefinition[]>([
-    { field: 'id', header: 'ID', sortable: true },
-    { field: 'name', header: 'Name', sortable: false, filterable: true },
-    { field: 'email', header: 'Email', sortable: false, filterable: true },
-    { field: 'actions', header: 'Actions' },
-  ]);
+  private columnsSignal = signal<ColumnDefinition[]>([]);
   private loadingSignal = signal<boolean>(false);
   private errorSignal = signal<string | null>(null);
   private displayCreateDialogSignal = signal<boolean>(false);
@@ -41,54 +36,81 @@ export class TableDataService {
   public displayUpdateDialog = computed(() => this.displayUpdateDialogSignal());
   public newRecord = computed(() => this.newRecordSignal());
   public selectedRecord = computed(() => this.selectedRecordSignal());
+  public globalFilterFields = computed(() =>
+    this.columns().map((col) => col.field)
+  );
 
   constructor() {
     this.loadData();
+    this.loadMetadata();
   }
 
   private isValidRecord(record: any): boolean {
-    return record['name']?.trim() !== '' && record['email']?.trim() !== '';
+    return (
+      record && Object.keys(record).every((key) => record[key]?.trim() !== '')
+    );
   }
 
   private executeOperation(
     operation: Observable<any>,
-    errorMessage: string,
+    messages: { errorMessage: string; successMessage?: string },
     reloadData: boolean = true,
-    isGetData: boolean = false
+    isGetData: boolean = false,
+    onSuccess?: (result: any) => void
   ) {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
-    operation
-      .pipe(
-        catchError((err) => {
-          this.errorSignal.set(errorMessage);
-          this.loadingSignal.set(false);
+    operation.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+      next: (result) => {
+        this.loadingSignal.set(false);
+
+        if (onSuccess) {
+          onSuccess(result);
+        }
+
+        if (isGetData) {
+          this.dataSignal.set(result ?? []);
+        }
+
+        if (result && reloadData) {
+          this.loadData();
+        }
+
+        if (messages.successMessage) {
           this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: errorMessage,
+            severity: 'success',
+            summary: 'Success',
+            detail: messages.successMessage,
           });
-          return of(null);
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe({
-        next: (result) => {
-          if (isGetData) {
-            this.dataSignal.set(result ?? []);
-          }
-          if (result && reloadData) {
-            this.loadData();
-          }
-          this.loadingSignal.set(false);
-        },
-      });
+        }
+      },
+      error: (err: Error) => {
+        this.errorSignal.set(messages.errorMessage);
+        this.loadingSignal.set(false);
+
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: messages.errorMessage,
+        });
+      },
+    });
+  }
+
+  loadMetadata() {
+    this.executeOperation(
+      this.integrationDataService.getMetadata(),
+      { errorMessage: 'Failed to load metadata' },
+      false,
+      false,
+      (result) => this.columnsSignal.set(result ?? [])
+    );
   }
 
   loadData() {
     this.executeOperation(
       this.integrationDataService.getData(),
-      'Failed to load data',
+      { errorMessage: 'Failed to load data' },
       false,
       true
     );
@@ -104,16 +126,11 @@ export class TableDataService {
       });
       return;
     }
-    this.executeOperation(
-      this.integrationDataService.create(data),
-      'Failed to create record'
-    );
-    this.displayCreateDialogSignal.set(false);
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Record created successfully',
+    this.executeOperation(this.integrationDataService.create(data), {
+      errorMessage: 'Failed to create record',
+      successMessage: 'Record created successfully',
     });
+    this.displayCreateDialogSignal.set(false);
   }
 
   update(data: any) {
@@ -125,16 +142,11 @@ export class TableDataService {
       });
       return;
     }
-    this.executeOperation(
-      this.integrationDataService.update(data),
-      'Failed to update record'
-    );
-    this.displayUpdateDialogSignal.set(false);
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Record updated successfully',
+    this.executeOperation(this.integrationDataService.update(data), {
+      errorMessage: 'Failed to update record',
+      successMessage: 'Record updated successfully',
     });
+    this.displayUpdateDialogSignal.set(false);
   }
 
   delete(code: string) {
@@ -143,21 +155,22 @@ export class TableDataService {
       header: 'Confirm Delete',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.executeOperation(
-          this.integrationDataService.delete(code),
-          'Failed to delete record'
-        );
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success',
-          detail: 'Record deleted successfully',
+        this.executeOperation(this.integrationDataService.delete(code), {
+          errorMessage: 'Failed to delete record',
+          successMessage: 'Record delete successfully',
         });
       },
     });
   }
 
   showCreateDialog() {
-    this.newRecordSignal.set({ name: '', email: '' });
+    const newRecord: any = {};
+    this.columnsSignal()
+      .filter((col) => col.field !== 'id')
+      .forEach((col) => {
+        newRecord[col.field] = col.type === 'number' ? 0 : '';
+      });
+    this.newRecordSignal.set(newRecord);
     this.displayCreateDialogSignal.set(true);
   }
 

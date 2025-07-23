@@ -1,128 +1,180 @@
 {
-  "users": [
+  "metadata": [
     {
-      "code": "b7e2",
-      "name": "Sara Youssefss",
-      "email": "sara.youssef@example.com",
-      "id": "b0a2"
+      "field": "code",
+      "header": "Product Code",
+      "sortable": true,
+      "id": "m001"
     },
     {
-      "code": "c9d8",
-      "name": "Omar Tarek",
-      "email": "omar.tarek@example.com",
-      "id": "a475"
+      "field": "title",
+      "header": "Product Title",
+      "sortable": true,
+      "filterable": true,
+      "id": "m002"
     },
     {
-      "code": "d2a4",
-      "name": "Nour Adel",
-      "email": "nour.adel@example.com",
-      "id": "c02f"
+      "field": "category",
+      "header": "Category",
+      "sortable": false,
+      "filterable": true,
+      "id": "m003"
     },
     {
-      "code": "e5c6",
-      "name": "Laila Samir",
-      "email": "laila.samir@example.com",
-      "id": "f7d7"
+      "field": "price",
+      "header": "Price",
+      "sortable": true,
+      "filterable": false,
+      "id": "m004"
     },
     {
-      "code": "f8b1",
-      "name": "Youssef Nabil",
-      "email": "youssef.nabil@example.com",
-      "id": "4843"
+      "field": "available",
+      "header": "In Stock",
+      "sortable": false,
+      "filterable": true,
+      "id": "m005"
+    }
+  ],
+  "data": [
+    {
+      "code": "P001",
+      "title": "Wireless Mouse",
+      "category": "Accessories",
+      "price": 25.99,
+      "available": true
     },
     {
-      "code": "g3h9",
-      "name": "Dina Khaled",
-      "email": "dina.khaled@example.com",
-      "id": "5576"
+      "code": "P002",
+      "title": "Mechanical Keyboard",
+      "category": "Accessories",
+      "price": 89.5,
+      "available": false
     },
     {
-      "code": "h4z0",
-      "name": "Ahmed Hassan",
-      "email": "ahmed.hassan@example.com",
-      "id": "be74"
+      "code": "P003",
+      "title": "Gaming Monitor",
+      "category": "Monitors",
+      "price": 229.99,
+      "available": true
     },
     {
-      "code": "i7m5",
-      "name": "Rana Mohamed",
-      "email": "rana.mohamed@example.com",
-      "id": "7cdc"
+      "code": "P004",
+      "title": "Laptop Stand",
+      "category": "Furniture",
+      "price": 32,
+      "available": true
     },
     {
-      "code": "j1k2",
-      "name": "Kareem Fathy",
-      "email": "kareem.fathy@example.com",
-      "id": "0f15"
+      "code": "P005",
+      "title": "Noise Cancelling Headphones",
+      "category": "Audio",
+      "price": 120.75,
+      "available": false
     },
     {
-      "code": "k6q3",
-      "name": "Hanan Mostafa",
-      "email": "hanan.mostafa@example.com",
-      "id": "650c"
+      "code": "P006",
+      "title": "USB-C Hub",
+      "category": "Accessories",
+      "price": 45.25,
+      "available": true
     },
     {
-      "code": "l9v7",
-      "name": "Tamer Lotfy",
-      "email": "tamer.lotfy@example.com",
-      "id": "dbe1"
+      "code": "P007",
+      "title": "Webcam 1080p",
+      "category": "Cameras",
+      "price": 65.9,
+      "available": true
     },
     {
-      "code": "m5s8",
-      "name": "Yasmin Ezz",
-      "email": "yasmin.ezz@example.com",
-      "id": "2f6b"
+      "code": "P008",
+      "title": "Ergonomic Chair",
+      "category": "Furniture",
+      "price": 199.99,
+      "available": true
     },
     {
-      "code": "n0w1",
-      "name": "Mostafa Kamal",
-      "email": "mostafa.kamal@example.com",
-      "id": "7095"
+      "code": "P009",
+      "title": "Smart Light Bulb",
+      "category": "Smart Home",
+      "price": 18,
+      "available": false
     },
     {
-      "code": "o3u6",
-      "name": "Nadine Fares",
-      "email": "nadine.fares@example.com",
-      "id": "e9ca"
+      "code": "P010",
+      "title": "Bluetooth Speaker",
+      "category": "Audio",
+      "price": 59.95,
+      "available": true
     },
     {
-      "code": "p2x9",
-      "name": "Ali Nasser",
-      "email": "ali.nasser@example.com",
-      "id": "0b8e"
+      "code": "P011",
+      "title": "Portable SSD 1TB",
+      "category": "Storage",
+      "price": 135,
+      "available": true
     },
     {
-      "code": "q8y4",
-      "name": "Hossam Reda",
-      "email": "hossam.reda@example.com",
-      "id": "87cc"
+      "code": "P012",
+      "title": "Drawing Tablet",
+      "category": "Design",
+      "price": 85.49,
+      "available": false
     },
     {
-      "code": "r6b0",
-      "name": "Menna Ayman",
-      "email": "menna.ayman@example.com",
-      "id": "f69c"
+      "code": "P013",
+      "title": "Laser Printer",
+      "category": "Printers",
+      "price": 180.99,
+      "available": true
     },
     {
-      "code": "s3c7",
-      "name": "Alaa Magdy",
-      "email": "alaa.magdy@example.com",
-      "id": "f249"
+      "code": "P014",
+      "title": "Wi-Fi Router",
+      "category": "Networking",
+      "price": 72,
+      "available": true
     },
     {
-      "code": "t5d2",
-      "name": "Salma Helmy",
-      "email": "salma.helmy@example.com",
-      "id": "b973"
+      "code": "P015",
+      "title": "HDMI Cable",
+      "category": "Accessories",
+      "price": 12.5,
+      "available": true
     },
     {
-      "id": "9fd9",
-      "name": "fsdfsd",
-      "email": "amin@gmail.com"
+      "code": "P016",
+      "title": "External Monitor Arm",
+      "category": "Furniture",
+      "price": 48.75,
+      "available": false
     },
     {
-      "id": "31e0",
-      "name": "ds",
-      "email": "33"
+      "code": "P017",
+      "title": "Desk Lamp",
+      "category": "Furniture",
+      "price": 27.9,
+      "available": true
+    },
+    {
+      "code": "P018",
+      "title": "Smart Plug",
+      "category": "Smart Home",
+      "price": 14.95,
+      "available": true
+    },
+    {
+      "code": "P019",
+      "title": "Stylus Pen",
+      "category": "Accessories",
+      "price": 29.99,
+      "available": true
+    },
+    {
+      "code": "P020",
+      "title": "Graphic Card RTX 4070",
+      "category": "Hardware",
+      "price": 599,
+      "available": false
     }
   ]
 }
