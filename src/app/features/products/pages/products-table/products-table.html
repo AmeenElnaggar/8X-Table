@@ -15,7 +15,7 @@
     label="New Record"
     icon="pi pi-plus"
     class="custom-add-button"
-    (click)="showCreateDialog()"
+    (click)="onShowCreateDialog()"
   ></button>
   <span class="p-input-icon-left search-wrapper">
     <i class="pi pi-search"></i>
@@ -40,6 +40,8 @@
   [rows]="10"
   [rowsPerPageOptions]="[10, 20, 50]"
   [globalFilterFields]="globalFilterFields()"
+  selectionMode="single"
+  (onRowSelect)="onRowSelectEvent($event)"
 >
   <!-- Table Header -->
   <ng-template #header>
@@ -67,7 +69,7 @@
 
   <!-- Table Body -->
   <ng-template #body let-record>
-    <tr>
+    <tr [pSelectableRow]="record">
       @for (col of columns(); track $index) {
       <td>{{ record[col.field] }}</td>
       }
@@ -76,7 +78,7 @@
           pButton
           icon="pi pi-pencil"
           class="p-button-text p-button-sm text-primary"
-          (click)="showUpdateDialog(record)"
+          (click)="onShowUpdateDialog(record)"
         ></button>
         <button
           pButton
@@ -88,76 +90,6 @@
     </tr>
   </ng-template>
 </p-table>
-
-<!-- Create Dialog-->
-<p-dialog
-  header="Create New Record"
-  [visible]="displayCreateDialog()"
-  [modal]="true"
->
-  @for (col of columns(); track col.field) { @if (col.field !== 'id' &&
-  newRecord()) {
-
-  <div class="p-field">
-    <label [for]="col.field">{{ col.header }}</label>
-    <input
-      pInputText
-      [id]="col.field"
-      [type]="col?.type || 'text'"
-      [(ngModel)]="newRecord()[col.field]"
-    />
-  </div>
-  }}
-  <ng-template pTemplate="footer">
-    <button
-      pButton
-      label="Cancel"
-      icon="pi pi-times"
-      (click)="hideCreateDialog()"
-    ></button>
-    <button
-      pButton
-      label="Save"
-      icon="pi pi-check"
-      (click)="saveNewRecord()"
-    ></button>
-  </ng-template>
-</p-dialog>
-
-<!-- Update Dialog -->
-<p-dialog
-  header="Update Record"
-  [visible]="displayUpdateDialog()"
-  [modal]="true"
->
-  @for (col of columns(); track col.field) { @if (col.field !== 'id' &&
-  selectedRecord()) {
-  <div class="p-field">
-    <label [for]="'update-' + col.field">{{ col.header }}</label>
-    <input
-      pInputText
-      [id]="'update-' + col.field"
-      [type]="col.type || 'text'"
-      [(ngModel)]="selectedRecord()[col.field]"
-    />
-  </div>
-  } }
-
-  <ng-template pTemplate="footer">
-    <button
-      pButton
-      label="Cancel"
-      icon="pi pi-times"
-      (click)="hideUpdateDialog()"
-    ></button>
-    <button
-      pButton
-      label="Save"
-      icon="pi pi-check"
-      (click)="saveUpdatedRecord()"
-    ></button>
-  </ng-template>
-</p-dialog>
 
 <!-- Delete Dialog -->
 <p-confirmDialog></p-confirmDialog>

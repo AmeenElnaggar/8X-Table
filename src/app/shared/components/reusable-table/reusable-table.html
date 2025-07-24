@@ -1,0 +1,8 @@
+<app-products-table
+  [columns]="columns()"
+  [data]="data()"
+  (update)="onUpdate($event)"
+  (delete)="onDelete($event)"
+  (create)="onCreate($event)"
+  (rowSelect)="onRowSelect($event)"
+/>

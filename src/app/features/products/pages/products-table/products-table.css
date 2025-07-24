@@ -488,62 +488,6 @@
   color: #000 !important;
 }
 
-::ng-deep .p-dialog-content .p-inputtext {
-  background-color: #ffffff !important;
-  border: 1px solid #000 !important;
-  color: #000 !important;
-}
-
-::ng-deep .p-dialog-close-button:hover {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  color: inherit !important;
-}
-::ng-deep .p-dialog-close-button .p-ripple {
-  display: none !important;
-}
-
-::ng-deep .p-dialog-footer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-::ng-deep .p-dialog-footer .p-button {
-  flex: 1;
-  max-width: 160px;
-}
-
-::ng-deep .p-dialog-footer .p-button .pi-times {
-  color: #dc2626;
-}
-
-::ng-deep .p-dialog-footer .p-button:nth-child(1) {
-  background-color: #f3f4f6;
-  color: #1f2937;
-  border: none;
-}
-
-::ng-deep .p-dialog-footer .p-button:nth-child(1):hover {
-  background-color: #e5e7eb;
-  border: none;
-}
-
-/* زرار Save */
-::ng-deep .p-dialog-footer .p-button .pi-check {
-  color: white !important;
-}
-
-::ng-deep .p-dialog-footer .p-button:nth-child(2) {
-  background-color: #10b981;
-  color: white;
-  border: none;
-}
-
-::ng-deep .p-dialog-footer .p-button:nth-child(2):hover {
-  background-color: #059669;
-}
-
 ::ng-deep .p-confirmdialog .p-confirmdialog-message {
   display: block;
   text-align: center;

@@ -1,41 +1,35 @@
 import {
   computed,
   DestroyRef,
-  effect,
   inject,
   Injectable,
   signal,
 } from '@angular/core';
-import { catchError, Observable, of, throwError } from 'rxjs';
-import { IntegrationDataService } from './integration-data.service';
-import { ColumnDefinition } from '../interfaces/column.model';
+import { Observable } from 'rxjs';
+import { IColumnDefinition } from '../interfaces/column-definition.model';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BackendService } from '../../core/services/backend.service';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ProductsDialog } from '../../features/products/components/products-dialog/products-dialog';
 
 @Injectable({ providedIn: 'root' })
 export class TableDataService {
-  private integrationDataService = inject(IntegrationDataService);
+  private backendService = inject(BackendService);
   private destroyRef = inject(DestroyRef);
   private messageService = inject(MessageService);
   private confirmationService = inject(ConfirmationService);
+  private dialogService = inject(DialogService);
 
   private dataSignal = signal<any[]>([]);
-  private columnsSignal = signal<ColumnDefinition[]>([]);
+  private columnsSignal = signal<IColumnDefinition[]>([]);
   private loadingSignal = signal<boolean>(false);
   private errorSignal = signal<string | null>(null);
-  private displayCreateDialogSignal = signal<boolean>(false);
-  private displayUpdateDialogSignal = signal<boolean>(false);
-  private newRecordSignal = signal<any>({ name: '', email: '' });
-  private selectedRecordSignal = signal<any | null>(null);
 
   public data = computed(() => this.dataSignal());
   public columns = computed(() => this.columnsSignal());
   public loading = computed(() => this.loadingSignal());
   public error = computed(() => this.errorSignal());
-  public displayCreateDialog = computed(() => this.displayCreateDialogSignal());
-  public displayUpdateDialog = computed(() => this.displayUpdateDialogSignal());
-  public newRecord = computed(() => this.newRecordSignal());
-  public selectedRecord = computed(() => this.selectedRecordSignal());
   public globalFilterFields = computed(() =>
     this.columns().map((col) => col.field)
   );
@@ -43,15 +37,6 @@ export class TableDataService {
   constructor() {
     this.loadData();
     this.loadMetadata();
-  }
-
-  private isValidRecord(record: any): boolean {
-    return (
-      record &&
-      Object.keys(record).every((key) => {
-        return record[key]?.toString().trim() !== '';
-      })
-    );
   }
 
   private executeOperation(
@@ -102,7 +87,7 @@ export class TableDataService {
 
   loadMetadata() {
     this.executeOperation(
-      this.integrationDataService.getMetadata(),
+      this.backendService.getMetadata(),
       { errorMessage: 'Failed to load metadata' },
       false,
       false,
@@ -112,44 +97,25 @@ export class TableDataService {
 
   loadData() {
     this.executeOperation(
-      this.integrationDataService.getData(),
+      this.backendService.getData(),
       { errorMessage: 'Failed to load data' },
       false,
       true
     );
   }
 
-  // ممكن ندمج الكود هنا ونعمل فانكشن مشتركه
   create(data: any) {
-    if (!this.isValidRecord(data)) {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Please fill all required fields',
-      });
-      return;
-    }
-    this.executeOperation(this.integrationDataService.create(data), {
+    this.executeOperation(this.backendService.create(data), {
       errorMessage: 'Failed to create record',
       successMessage: 'Record created successfully',
     });
-    this.displayCreateDialogSignal.set(false);
   }
 
   update(data: any) {
-    if (!this.isValidRecord(data)) {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Please fill all required fields',
-      });
-      return;
-    }
-    this.executeOperation(this.integrationDataService.update(data), {
+    this.executeOperation(this.backendService.update(data), {
       errorMessage: 'Failed to update record',
       successMessage: 'Record updated successfully',
     });
-    this.displayUpdateDialogSignal.set(false);
   }
 
   delete(code: string) {
@@ -158,7 +124,7 @@ export class TableDataService {
       header: 'Confirm Delete',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.executeOperation(this.integrationDataService.delete(code), {
+        this.executeOperation(this.backendService.delete(code), {
           errorMessage: 'Failed to delete record',
           successMessage: 'Record delete successfully',
         });
@@ -166,27 +132,28 @@ export class TableDataService {
     });
   }
 
-  showCreateDialog() {
-    const newRecord: any = {};
-    this.columnsSignal()
-      .filter((col) => col.field !== 'id')
-      .forEach((col) => {
-        newRecord[col.field] = col.type === 'number' ? 0 : '';
-      });
-    this.newRecordSignal.set(newRecord);
-    this.displayCreateDialogSignal.set(true);
+  showCreateDialog(columns: IColumnDefinition[]) {
+    return this.dialogService.open(ProductsDialog, {
+      header: 'Create New Record',
+      width: '300px',
+      data: {
+        mode: 'create',
+        columns: columns,
+      },
+      modal: true,
+    });
   }
 
-  hideCreateDialog() {
-    this.displayCreateDialogSignal.set(false);
-  }
-
-  showUpdateDialog(record: any) {
-    this.selectedRecordSignal.set({ ...record });
-    this.displayUpdateDialogSignal.set(true);
-  }
-
-  hideUpdateDialog() {
-    this.displayUpdateDialogSignal.set(false);
+  showUpdateDialog(columns: IColumnDefinition[], record: any) {
+    return this.dialogService.open(ProductsDialog, {
+      header: 'Update Record',
+      width: '300px',
+      data: {
+        mode: 'update',
+        columns: columns,
+        record: record,
+      },
+      modal: true,
+    });
   }
 }

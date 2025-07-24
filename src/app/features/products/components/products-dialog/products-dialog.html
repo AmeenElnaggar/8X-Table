@@ -1,0 +1,21 @@
+<h3>
+  {{ mode() === "create" ? "Create New Record" : "Update Record" }}
+</h3>
+
+@for (col of columns(); track col.field) { @if (col.field !== 'id') {
+<ng-container>
+  <div class="p-field mb-3">
+    <label [for]="col.field">{{ col.header }}</label>
+    <input
+      pInputText
+      [id]="col.field"
+      [type]="col?.type || 'text'"
+      [(ngModel)]="record()[col.field]"
+    />
+  </div>
+</ng-container>
+} }
+<div class="p-dialog-footer">
+  <button pButton label="Cancel" icon="pi pi-times" (click)="cancel()"></button>
+  <button pButton label="Save" icon="pi pi-check" (click)="save()"></button>
+</div>
