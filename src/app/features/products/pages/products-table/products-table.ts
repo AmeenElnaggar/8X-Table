@@ -1,4 +1,11 @@
-import { Component, inject, input, output, viewChild } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  output,
+  TemplateRef,
+  viewChild,
+} from '@angular/core';
 import { Table, TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -39,6 +46,8 @@ export class ProductsTable {
 
   data = input.required<any[]>();
   columns = input.required<IColumnDefinition[]>();
+  customBodyTemplate = input<TemplateRef<any>>();
+
   create = output<any>();
   update = output<any>();
   delete = output<string>();
