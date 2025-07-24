@@ -10,7 +10,7 @@ import { IColumnDefinition } from '../../../../shared/interfaces/column-definiti
 
 @Component({
   selector: 'app-products-dialog',
-  imports: [CommonModule, FormsModule, InputTextModule, ButtonModule],
+  imports: [FormsModule, InputTextModule, ButtonModule],
   templateUrl: './products-dialog.html',
   styleUrl: './products-dialog.css',
 })

@@ -1,5 +1,3 @@
-<!-- Message Notfication -->
-
 <p-toast></p-toast>
 
 @if (loading()) {
@@ -8,28 +6,11 @@
 </div>
 }
 
-<!-- Table Header for Add and Filter-->
-<div class="table-header">
-  <button
-    pButton
-    label="New Record"
-    icon="pi pi-plus"
-    class="custom-add-button"
-    (click)="onShowCreateDialog()"
-  ></button>
-  <span class="p-input-icon-left search-wrapper">
-    <i class="pi pi-search"></i>
-    <input
-      pInputText
-      type="text"
-      placeholder="Search..."
-      (input)="onFilterGlobal($event)"
-      class="custom-search-input"
-    />
-  </span>
-</div>
+<app-reusable-table-header
+  (createClicked)="onShowCreateDialog()"
+  (searchInput)="onFilterGlobal($event)"
+/>
 
-<!-- Table  -->
 <p-table
   #dt
   [value]="data()"
@@ -91,5 +72,4 @@
   </ng-template>
 </p-table>
 
-<!-- Delete Dialog -->
 <p-confirmDialog></p-confirmDialog>

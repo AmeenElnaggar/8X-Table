@@ -1,0 +1,19 @@
+<div class="table-header">
+  <button
+    pButton
+    label="New Record"
+    icon="pi pi-plus"
+    class="custom-add-button"
+    (click)="onCreateClick()"
+  ></button>
+  <span class="p-input-icon-left search-wrapper">
+    <i class="pi pi-search"></i>
+    <input
+      pInputText
+      type="text"
+      placeholder="Search..."
+      (input)="onSearch($event)"
+      class="custom-search-input"
+    />
+  </span>
+</div>

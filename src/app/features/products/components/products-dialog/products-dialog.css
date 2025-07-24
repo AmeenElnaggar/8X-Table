@@ -1,3 +1,31 @@
+::ng-deep .p-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+::ng-deep .p-dialog-header {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  background-color: #f9fafb;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+::ng-deep .p-dialog-content {
+  padding: 1.5rem;
+  background-color: #ffffff;
+}
+
+::ng-deep .p-dialog-footer {
+  padding: 1.2rem 1.5rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  text-align: right;
+}
+
 ::ng-deep .p-dialog-content .p-inputtext {
   background-color: #ffffff !important;
   border: 1px solid #000 !important;
@@ -40,7 +68,6 @@
   border: none;
 }
 
-/* زرار Save */
 ::ng-deep .p-dialog-footer .p-button .pi-check {
   color: white !important;
 }

@@ -1,63 +1,3 @@
-/* Table Header */
-
-.table-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.custom-add-button {
-  background-color: #10b981; /* Emerald-500 */
-  border: none;
-  color: white;
-  padding: 0.6rem 1rem;
-  font-weight: 500;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
-}
-
-.custom-add-button:hover {
-  background-color: #059669; /* Emerald-600 */
-}
-
-.search-wrapper {
-  position: relative;
-}
-
-.custom-search-input {
-  padding: 0.6rem 1rem 0.6rem 2.5rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  min-width: 220px;
-  background-color: white;
-}
-
-@media screen and (max-width: 600px) {
-  .table-header {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .custom-add-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .search-wrapper {
-    width: 100%;
-  }
-
-  .custom-search-input {
-    width: 100%;
-  }
-}
-
 ::ng-deep .p-input-icon-left > i {
   left: 10px;
   top: 50%;
@@ -66,7 +6,6 @@
   position: absolute;
 }
 
-/* Table */
 ::ng-deep .p-datatable {
   border-radius: 12px;
   overflow: hidden;
@@ -76,7 +15,6 @@
 
 ::ng-deep .p-datatable-wrapper {
   border: none;
-  /* Adding horizontal scroll for small screens */
   overflow-x: auto;
 }
 
@@ -105,7 +43,7 @@
 
 ::ng-deep .p-datatable thead > tr > th:last-child,
 ::ng-deep .p-datatable tbody > tr > td:last-child {
-  min-width: 120px; /* Minimum width for Actions column */
+  min-width: 120px;
 }
 
 ::ng-deep .p-datatable-tbody > tr > td {
@@ -121,8 +59,6 @@
 ::ng-deep .p-datatable-tbody > tr:hover > td {
   background-color: #eef2ff;
 }
-
-/* Responsive Styles */
 
 @media screen and (max-width: 640px) {
   ::ng-deep .p-datatable-wrapper {
@@ -181,36 +117,6 @@
   color: rgb(207, 49, 49);
 }
 
-/* Dialog */
-
-::ng-deep .p-dialog {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-::ng-deep .p-dialog-header {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f2937; /* slate-800 */
-  background-color: #f9fafb;
-  padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-::ng-deep .p-dialog-content {
-  padding: 1.5rem;
-  background-color: #ffffff;
-}
-
-::ng-deep .p-dialog-footer {
-  padding: 1.2rem 1.5rem;
-  background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
-  text-align: right;
-}
-
 ::ng-deep .p-field {
   display: flex;
   flex-direction: column;
@@ -219,20 +125,20 @@
 
 ::ng-deep .p-field label {
   font-weight: 500;
-  color: #374151; /* slate-700 */
+  color: #374151;
   margin-bottom: 0.5rem;
 }
 
 ::ng-deep .p-inputtext {
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db;
   font-size: 14px;
   transition: border-color 0.2s;
 }
 
 ::ng-deep .p-inputtext:focus {
-  border-color: #6366f1; /* indigo-500 */
+  border-color: #6366f1;
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
@@ -249,7 +155,6 @@
   color: rgb(223, 49, 18);
 }
 
-/* Toast */
 ::ng-deep .p-toast {
   z-index: 9999;
   top: 1rem;
@@ -267,18 +172,18 @@
 
 ::ng-deep .p-toast-message-success {
   background-color: #ffffff;
-  color: #16a34a; /* green-600 */
+  color: #16a34a;
   border-color: #16a34a;
 }
 
 ::ng-deep .p-toast-message-error {
   background-color: #ffffff;
-  color: #dc2626; /* red-600 */
+  color: #dc2626;
   border-color: #dc2626;
 }
 
 ::ng-deep .p-toast-icon-close {
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
 }
 
 ::ng-deep .p-toast-summary {
@@ -288,10 +193,9 @@
 
 ::ng-deep .p-toast-detail {
   font-size: 14px;
-  color: #374151; /* slate-700 */
+  color: #374151;
 }
 
-/* Delete Dialog */
 ::ng-deep .p-confirmdialog-icon {
   margin-right: 5px;
   color: #dc2626;
@@ -328,45 +232,39 @@
   margin-bottom: 1rem;
 }
 
-/* Paginator */
-
-/* 📦 شكل عام للـ paginator */
 ::ng-deep .p-paginator {
   padding: 1rem;
-  background-color: #f9fafb !important; /* خلفية فاتحة */
-  border-top: 1px solid #e5e7eb !important; /* خط خفيف أعلى */
+  background-color: #f9fafb !important;
+  border-top: 1px solid #e5e7eb !important;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* 🔢 أزرار الأرقام */
 ::ng-deep .p-paginator .p-paginator-page {
   background-color: white !important;
   border: 1px solid #d1d5db !important;
-  color: #374151 !important; /* Slate */
+  color: #374151 !important;
   border-radius: 6px;
   padding: 0.4rem 0.75rem;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
-/* ✅ الزرار النشط */
 ::ng-deep .p-paginator .p-paginator-page.p-highlight {
-  background-color: #3b82f6 !important; /* Blue */
+  background-color: #3b82f6 !important;
   color: white !important;
   border-color: #3b82f6 !important;
 }
 
-/* ⏮️ أزرار التالي والسابق */
 ::ng-deep .p-paginator .p-paginator-first,
 ::ng-deep .p-paginator .p-paginator-prev,
 ::ng-deep .p-paginator .p-paginator-next,
 ::ng-deep .p-paginator .p-paginator-last {
   background-color: white !important;
   border: 1px solid #d1d5db !important;
-  color: #6b7280 !important; /* Gray-600 */
+  color: #6b7280 !important;
   border-radius: 6px;
   padding: 0.4rem 0.75rem;
   transition: all 0.2s ease;
@@ -397,8 +295,8 @@
 }
 
 ::ng-deep .p-select-list {
-  background-color: #ffffff !important; /* أبيض نضيف */
-  border: 1px solid #3b82f6 !important; /* حدود بلون أزرق شيك */
+  background-color: #ffffff !important;
+  border: 1px solid #3b82f6 !important;
   border-radius: 8px;
   padding: 6px 0;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -406,7 +304,7 @@
   font-size: 14px;
   color: #1f2937 !important;
   transition: all 0.3s ease;
-  z-index: 9999; /* تأكيد إنها فوق العناصر */
+  z-index: 9999;
 }
 
 ::ng-deep .p-select-option.p-focus {
@@ -437,21 +335,19 @@
   color: #0c4a6e !important;
 }
 
-/* العنصر المختار */
 ::ng-deep .p-select-option-selected {
   background-color: #3b82f6 !important;
   color: #ffffff !important;
   font-weight: 600 !important;
 }
 
-/* لما يكون في focus */
 ::ng-deep .p-select-option.p-focus {
   outline: 2px solid #3b82f6;
   outline-offset: -2px;
 }
 ::ng-deep .p-paginator-page-selected {
-  background-color: #3b82f6; /* أزرق شيك */
-  color: #ffffff; /* خط أبيض */
+  background-color: #3b82f6;
+  color: #ffffff;
   border-radius: 6px;
   font-weight: 600;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
@@ -508,7 +404,6 @@
   justify-content: center;
 }
 
-/* زرار No */
 ::ng-deep .p-confirmdialog-reject-button {
   background-color: #f3f4f6;
   color: #dc2626;
@@ -533,7 +428,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+  background: rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -544,7 +439,7 @@
   width: 48px;
   height: 48px;
   border: 5px solid #d3d3d3;
-  border-top: 5px solid #6c63ff; /* اللون الأساسي */
+  border-top: 5px solid #6c63ff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

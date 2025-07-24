@@ -13,6 +13,7 @@ import { IColumnDefinition } from '../../../../shared/interfaces/column-definiti
 import { TableDataService } from '../../../../shared/services/table-data.service';
 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ReusableTableHeader } from '../../../../shared/components/reusable-table-header/reusable-table-header';
 
 @Component({
   selector: 'app-products-table',
@@ -28,6 +29,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     IconFieldModule,
     InputIconModule,
     DynamicDialogModule,
+    ReusableTableHeader,
   ],
   templateUrl: './products-table.html',
   styleUrl: './products-table.css',
@@ -54,9 +56,8 @@ export class ProductsTable {
     this.rowSelect.emit(event.data);
   }
 
-  onFilterGlobal(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.table().filterGlobal(input.value, 'contains');
+  onFilterGlobal(value: string) {
+    this.table().filterGlobal(value, 'contains');
   }
 
   onShowCreateDialog() {
