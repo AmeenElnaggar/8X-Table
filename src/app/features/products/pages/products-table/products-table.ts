@@ -44,6 +44,8 @@ import { ReusableTableHeader } from '../../../../shared/components/reusable-tabl
 export class ProductsTable {
   private tableDataService = inject(TableDataService);
 
+  table = viewChild.required<Table>('dt');
+
   data = input.required<any[]>();
   columns = input.required<IColumnDefinition[]>();
   customBodyTemplate = input<TemplateRef<any>>();
@@ -53,7 +55,6 @@ export class ProductsTable {
   delete = output<string>();
   rowSelect = output<any>();
 
-  table = viewChild.required<Table>('dt');
   globalFilterFields = this.tableDataService.globalFilterFields;
   loading = this.tableDataService.loading;
 
@@ -63,6 +64,7 @@ export class ProductsTable {
 
   onRowSelectEvent(event: any) {
     this.rowSelect.emit(event.data);
+    this.onShowUpdateDialog(event.data);
   }
 
   onFilterGlobal(value: string) {

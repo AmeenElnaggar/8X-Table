@@ -5,4 +5,15 @@
   (delete)="onDelete($event)"
   (create)="onCreate($event)"
   (rowSelect)="onRowSelect($event)"
+  [customBodyTemplate]="customTemplate"
 />
+
+<ng-template #customTemplate let-record let-col="column">
+  @if (col.field === 'code') {
+  <span style="font-weight: bold">
+    {{ record.code }}
+  </span>
+  } @else {
+  {{ record[col.field] }}
+  }
+</ng-template>

@@ -60,6 +60,11 @@
   background-color: #eef2ff;
 }
 
+::ng-deep .p-datatable-row-selected td {
+  background-color: #6b7280 !important;
+  color: #fff !important;
+}
+
 @media screen and (max-width: 640px) {
   ::ng-deep .p-datatable-wrapper {
     overflow-x: auto;

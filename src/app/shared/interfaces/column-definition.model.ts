@@ -1,4 +1,4 @@
-import { EColumnType } from '../enums/column-type.enum';
+import { EColumnRenderType, EColumnType } from '../enums/column-type.enum';
 
 export interface IColumnDefinition {
   field: string;
@@ -6,4 +6,5 @@ export interface IColumnDefinition {
   sortable?: boolean;
   filterable?: boolean;
   type?: EColumnType;
+  renderType?: EColumnRenderType;
 }

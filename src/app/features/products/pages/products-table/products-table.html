@@ -52,7 +52,16 @@
   <ng-template #body let-record>
     <tr [pSelectableRow]="record">
       @for (col of columns(); track $index) {
-      <td>{{ record[col.field] }}</td>
+      <td>
+        @if (customBodyTemplate()) {
+        <ng-container
+          [ngTemplateOutlet]="customBodyTemplate()"
+          [ngTemplateOutletContext]="{ $implicit: record, column: col }"
+        ></ng-container>
+        } @else {
+        {{ record[col.field] }}
+        }
+      </td>
       }
       <td>
         <button
