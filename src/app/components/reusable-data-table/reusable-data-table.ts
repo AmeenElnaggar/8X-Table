@@ -1,10 +1,12 @@
 import {
+  ChangeDetectorRef,
   Component,
   inject,
   input,
   output,
   viewChild,
   ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Table, TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
@@ -36,6 +38,7 @@ import { ColumnDefinition } from '../../interfaces/column.model';
   ],
   templateUrl: './reusable-data-table.html',
   styleUrl: './reusable-data-table.css',
+  // encapsulation: ViewEncapsulation.None,
 })
 export class ReusableDataTable {
   private tableDataService = inject(TableDataService);
@@ -91,5 +94,11 @@ export class ReusableDataTable {
   onFilterGlobal(event: Event) {
     const input = event.target as HTMLInputElement;
     this.table().filterGlobal(input.value, 'contains');
+  }
+
+  private cdRef = inject(ChangeDetectorRef);
+
+  ngAfterViewInit() {
+    setTimeout(() => this.cdRef.detectChanges(), 10000);
   }
 }

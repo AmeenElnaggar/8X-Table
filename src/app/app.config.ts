@@ -4,6 +4,7 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
@@ -19,6 +20,9 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG(),
     provideHttpClient(),
     provideAnimations(),
+    providePrimeNG({
+      theme: { preset: Aura },
+    }),
     MessageService,
     ConfirmationService,
   ],

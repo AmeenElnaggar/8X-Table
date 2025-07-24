@@ -75,8 +75,8 @@
 }
 
 ::ng-deep .p-datatable-thead > tr > th {
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
   font-weight: 600;
 }
 
@@ -263,8 +263,8 @@
 /* 📦 شكل عام للـ paginator */
 ::ng-deep .p-paginator {
   padding: 1rem;
-  background-color: #f9fafb; /* خلفية فاتحة */
-  border-top: 1px solid #e5e7eb; /* خط خفيف أعلى */
+  background-color: #f9fafb !important; /* خلفية فاتحة */
+  border-top: 1px solid #e5e7eb !important; /* خط خفيف أعلى */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,9 +273,9 @@
 
 /* 🔢 أزرار الأرقام */
 ::ng-deep .p-paginator .p-paginator-page {
-  background-color: white;
-  border: 1px solid #d1d5db;
-  color: #374151; /* Slate */
+  background-color: white !important;
+  border: 1px solid #d1d5db !important;
+  color: #374151 !important; /* Slate */
   border-radius: 6px;
   padding: 0.4rem 0.75rem;
   font-weight: 500;
@@ -284,9 +284,9 @@
 
 /* ✅ الزرار النشط */
 ::ng-deep .p-paginator .p-paginator-page.p-highlight {
-  background-color: #3b82f6; /* Blue */
-  color: white;
-  border-color: #3b82f6;
+  background-color: #3b82f6 !important; /* Blue */
+  color: white !important;
+  border-color: #3b82f6 !important;
 }
 
 /* ⏮️ أزرار التالي والسابق */
@@ -294,9 +294,9 @@
 ::ng-deep .p-paginator .p-paginator-prev,
 ::ng-deep .p-paginator .p-paginator-next,
 ::ng-deep .p-paginator .p-paginator-last {
-  background-color: white;
-  border: 1px solid #d1d5db;
-  color: #6b7280; /* Gray-600 */
+  background-color: white !important;
+  border: 1px solid #d1d5db !important;
+  color: #6b7280 !important; /* Gray-600 */
   border-radius: 6px;
   padding: 0.4rem 0.75rem;
   transition: all 0.2s ease;
@@ -307,61 +307,71 @@
 ::ng-deep .p-paginator .p-paginator-next:hover,
 ::ng-deep .p-paginator .p-paginator-last:hover,
 ::ng-deep .p-paginator .p-paginator-page:hover {
-  background-color: #e5e7eb;
-  color: #111827;
-  border-color: #9ca3af;
+  background-color: #e5e7eb !important;
+  color: #111827 !important;
+  border-color: #9ca3af !important;
 }
 
 ::ng-deep .p-select {
-  background-color: #f1f5f9; /* لون خلفية هادئ */
-  color: #1f2937; /* رمادي غامق */
-  font-weight: 500;
-  padding: 6px 12px;
+  background-color: #f1f5f9 !important;
+  color: #1f2937 !important;
   border-radius: 8px;
-  border: 1px solid #cbd5e1; /* حواف خفيفة */
+  border: 1px solid #cbd5e1 !important;
   transition: all 0.2s ease;
 }
 
 ::ng-deep .p-select:hover {
-  background-color: #e2e8f0;
-  border-color: #94a3b8;
+  background-color: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
   cursor: pointer;
 }
 
 ::ng-deep .p-select-list {
-  background-color: #ffffff; /* أبيض نضيف */
-  border: 1px solid #3b82f6; /* حدود بلون أزرق شيك */
+  background-color: #ffffff !important; /* أبيض نضيف */
+  border: 1px solid #3b82f6 !important; /* حدود بلون أزرق شيك */
   border-radius: 8px;
   padding: 6px 0;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
   font-size: 14px;
-  color: #1f2937;
+  color: #1f2937 !important;
   transition: all 0.3s ease;
   z-index: 9999; /* تأكيد إنها فوق العناصر */
 }
 
+::ng-deep .p-select-option.p-focus {
+  background-color: #e0f2fe !important;
+  color: #0c4a6e !important;
+}
 ::ng-deep .p-select-option {
   padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
-  color: #1f2937;
-  background-color: white;
+  color: #1f2937 !important;
+  background-color: white !important;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s ease !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+::ng-deep .p-icon {
+  color: #1f2937 !important;
+}
+
+::ng-deep .p-select-label {
+  color: #1f2937 !important;
 }
 
 ::ng-deep .p-select-option:hover {
-  background-color: #e0f2fe;
-  color: #0c4a6e;
+  background-color: #e0f2fe !important;
+  color: #0c4a6e !important;
 }
 
 /* العنصر المختار */
 ::ng-deep .p-select-option-selected {
   background-color: #3b82f6 !important;
   color: #ffffff !important;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 /* لما يكون في focus */
@@ -370,8 +380,8 @@
   outline-offset: -2px;
 }
 ::ng-deep .p-paginator-page-selected {
-  background-color: #3b82f6 !important; /* أزرق شيك */
-  color: #ffffff !important; /* خط أبيض */
+  background-color: #3b82f6; /* أزرق شيك */
+  color: #ffffff; /* خط أبيض */
   border-radius: 6px;
   font-weight: 600;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
@@ -379,48 +389,126 @@
   transition: all 0.2s ease;
 }
 
+::ng-deep .p-datatable-column-filter-button:hover {
+  background-color: transparent !important;
+  cursor: pointer !important;
+}
+
 ::ng-deep .p-datatable-filter-add-rule-button {
-  display: none;
+  display: none !important;
 }
 
 ::ng-deep .p-datatable-filter-operator-dropdown {
-  display: none;
+  display: none !important;
 }
 
 ::ng-deep .p-datatable-filter-overlay {
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  min-width: 200px;
-  z-index: 1000;
+  background-color: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  padding: 12px !important;
+  min-width: 200px !important;
+  z-index: 1000 !important;
 }
 
-.custom-loader-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+::ng-deep .p-datatable-filter-rule .p-inputtext {
+  background-color: #ffffff !important;
+  border: 1px solid #000 !important;
+  color: #000 !important;
+}
+
+::ng-deep .p-dialog-content .p-inputtext {
+  background-color: #ffffff !important;
+  border: 1px solid #000 !important;
+  color: #000 !important;
+}
+
+::ng-deep .p-dialog-close-button:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+::ng-deep .p-dialog-close-button .p-ripple {
+  display: none !important;
+}
+
+::ng-deep .p-dialog-footer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  gap: 1rem;
 }
 
-.custom-loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #d3d3d3;
-  border-top: 5px solid #6c63ff; /* اللون الأساسي */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+::ng-deep .p-dialog-footer .p-button {
+  flex: 1;
+  max-width: 160px;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+::ng-deep .p-dialog-footer .p-button .pi-times {
+  color: #dc2626;
+}
+
+::ng-deep .p-dialog-footer .p-button:nth-child(1) {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: none;
+}
+
+::ng-deep .p-dialog-footer .p-button:nth-child(1):hover {
+  background-color: #e5e7eb;
+  border: none;
+}
+
+/* زرار Save */
+::ng-deep .p-dialog-footer .p-button .pi-check {
+  color: white !important;
+}
+
+::ng-deep .p-dialog-footer .p-button:nth-child(2) {
+  background-color: #10b981;
+  color: white;
+  border: none;
+}
+
+::ng-deep .p-dialog-footer .p-button:nth-child(2):hover {
+  background-color: #059669;
+}
+
+::ng-deep .p-confirmdialog .p-confirmdialog-message {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  margin-top: 1rem;
+}
+
+::ng-deep .p-confirmdialog .p-confirmdialog-icon {
+  color: #f59e0b;
+  display: block;
+  text-align: center;
+}
+
+::ng-deep .p-confirmdialog .p-dialog-footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* زرار No */
+::ng-deep .p-confirmdialog-reject-button {
+  background-color: #f3f4f6;
+  color: #dc2626;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+::ng-deep .p-confirmdialog-reject-button:hover {
+  background-color: #e5e7eb;
+  color: #b91c1c;
+}
+
+::ng-deep .p-confirmdialog-accept-button:hover {
+  background-color: #059669;
 }

@@ -1,4 +1,5 @@
 <!-- Message Notfication -->
+
 <p-toast></p-toast>
 
 @if (loading()) {
@@ -55,6 +56,7 @@
           placeholder="Filter by {{ col.header }}"
           ariaLabel="Filter {{ col.header }}"
           display="menu"
+          styleClass="select-filter"
         ></p-columnFilter>
         }
       </th>
