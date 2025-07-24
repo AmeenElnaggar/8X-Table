@@ -37,6 +37,27 @@
   background-color: white;
 }
 
+@media screen and (max-width: 600px) {
+  .table-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .custom-add-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-wrapper {
+    width: 100%;
+  }
+
+  .custom-search-input {
+    width: 100%;
+  }
+}
+
 ::ng-deep .p-input-icon-left > i {
   left: 10px;
   top: 50%;
@@ -55,13 +76,15 @@
 
 ::ng-deep .p-datatable-wrapper {
   border: none;
+  /* Adding horizontal scroll for small screens */
+  overflow-x: auto;
 }
 
 ::ng-deep .p-datatable-table {
   background-color: #ffffff;
   border-collapse: collapse;
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
   text-align: center;
 }
 
@@ -80,6 +103,11 @@
   font-weight: 600;
 }
 
+::ng-deep .p-datatable thead > tr > th:last-child,
+::ng-deep .p-datatable tbody > tr > td:last-child {
+  min-width: 120px; /* Minimum width for Actions column */
+}
+
 ::ng-deep .p-datatable-tbody > tr > td {
   color: #374151;
   background-color: #fff;
@@ -93,6 +121,48 @@
 ::ng-deep .p-datatable-tbody > tr:hover > td {
   background-color: #eef2ff;
 }
+
+/* Responsive Styles */
+
+@media screen and (max-width: 640px) {
+  ::ng-deep .p-datatable-wrapper {
+    overflow-x: auto;
+  }
+
+  ::ng-deep .p-datatable-table {
+    min-width: 600px;
+  }
+
+  ::ng-deep .p-datatable thead > tr > th,
+  ::ng-deep .p-datatable tbody > tr > td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  ::ng-deep .p-datatable thead > tr > th:last-child,
+  ::ng-deep .p-datatable tbody > tr > td:last-child {
+    min-width: 100px;
+  }
+
+  ::ng-deep .p-datatable tbody > tr > td:last-child .p-button {
+    padding: 0.3rem;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  ::ng-deep .p-datatable thead > tr > th,
+  ::ng-deep .p-datatable tbody > tr > td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  ::ng-deep .p-datatable thead > tr > th:last-child,
+  ::ng-deep .p-datatable tbody > tr > td:last-child {
+    min-width: 110px;
+  }
+}
+
 ::ng-deep .p-button-text {
   padding: 6px;
   border-radius: 8px;
@@ -511,4 +581,32 @@
 
 ::ng-deep .p-confirmdialog-accept-button:hover {
   background-color: #059669;
+}
+
+.custom-loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #d3d3d3;
+  border-top: 5px solid #6c63ff; /* اللون الأساسي */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
