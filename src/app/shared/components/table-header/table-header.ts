@@ -3,12 +3,12 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-reusable-table-header',
+  selector: 'app-table-header',
   imports: [InputTextModule, ButtonModule],
-  templateUrl: './reusable-table-header.html',
-  styleUrl: './reusable-table-header.css',
+  templateUrl: './table-header.html',
+  styleUrl: './table-header.css',
 })
-export class ReusableTableHeader {
+export class TableHeader {
   createClicked = output<void>();
   searchInput = output<string>();
 

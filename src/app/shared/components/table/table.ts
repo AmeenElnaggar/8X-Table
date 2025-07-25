@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
 
 import { TableDataService } from '../../services/table-data.service';
-import { ProductsTable } from '../../../features/products/pages/products-table/products-table';
+import { List } from '../../../features/products/pages/list/list';
 
 @Component({
-  selector: 'app-reusable-table',
+  selector: 'app-table',
   standalone: true,
-  imports: [ProductsTable],
-  templateUrl: './reusable-table.html',
-  styleUrl: './reusable-table.css',
+  imports: [List],
+  templateUrl: './table.html',
+  styleUrl: './table.css',
 })
-export class ReusableTable {
+export class Table {
   private tableDataService = inject(TableDataService);
 
   data = this.tableDataService.data;

@@ -4,8 +4,8 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./shared/components/reusable-table/reusable-table').then(
-        (response) => response.ReusableTable
+      import('./shared/components/table/table').then(
+        (response) => response.Table
       ),
   },
 ];

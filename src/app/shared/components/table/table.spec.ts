@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReusableTable } from './reusable-table';
+import { Table } from './table';
 
-describe('ReusableTable', () => {
-  let component: ReusableTable;
-  let fixture: ComponentFixture<ReusableTable>;
+describe('Table', () => {
+  let component: Table;
+  let fixture: ComponentFixture<Table>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReusableTable],
+      imports: [Table],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReusableTable);
+    fixture = TestBed.createComponent(Table);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

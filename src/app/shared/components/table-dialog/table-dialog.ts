@@ -7,12 +7,12 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-reusable-table-dialog',
+  selector: 'app-table-dialog',
   imports: [FormsModule, InputTextModule, ButtonModule],
-  templateUrl: './reusable-table-dialog.html',
-  styleUrl: './reusable-table-dialog.css',
+  templateUrl: './table-dialog.html',
+  styleUrl: './table-dialog.css',
 })
-export class ReusableTableDialog {
+export class TableDialog {
   private config = inject(DynamicDialogConfig);
   private dialogRef = inject(DynamicDialogRef);
   private messageService = inject(MessageService);

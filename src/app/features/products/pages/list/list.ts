@@ -20,10 +20,10 @@ import { IColumnDefinition } from '../../../../shared/interfaces/column-definiti
 import { TableDataService } from '../../../../shared/services/table-data.service';
 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { ReusableTableHeader } from '../../../../shared/components/reusable-table-header/reusable-table-header';
+import { TableHeader } from '../../../../shared/components/table-header/table-header';
 
 @Component({
-  selector: 'app-products-table',
+  selector: 'app-list',
   imports: [
     TableModule,
     DialogModule,
@@ -36,12 +36,12 @@ import { ReusableTableHeader } from '../../../../shared/components/reusable-tabl
     IconFieldModule,
     InputIconModule,
     DynamicDialogModule,
-    ReusableTableHeader,
+    TableHeader,
   ],
-  templateUrl: './products-table.html',
-  styleUrl: './products-table.css',
+  templateUrl: './list.html',
+  styleUrl: './list.css',
 })
-export class ProductsTable {
+export class List {
   private tableDataService = inject(TableDataService);
 
   table = viewChild.required<Table>('dt');
