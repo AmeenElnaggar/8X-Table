@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductsDialog } from './products-dialog';
+import { ReusableTableDialog } from './reusable-table-dialog';
 
-describe('ProductsDialog', () => {
-  let component: ProductsDialog;
-  let fixture: ComponentFixture<ProductsDialog>;
+describe('ReusableTableDialog', () => {
+  let component: ReusableTableDialog;
+  let fixture: ComponentFixture<ReusableTableDialog>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductsDialog]
+      imports: [ReusableTableDialog]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProductsDialog);
+    fixture = TestBed.createComponent(ReusableTableDialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

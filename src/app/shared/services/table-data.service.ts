@@ -11,7 +11,7 @@ import { MessageService, ConfirmationService } from 'primeng/api';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BackendService } from '../../core/services/backend.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ProductsDialog } from '../../features/products/components/products-dialog/products-dialog';
+import { ReusableTableDialog } from '../components/reusable-table-dialog/reusable-table-dialog';
 
 @Injectable({ providedIn: 'root' })
 export class TableDataService {
@@ -133,7 +133,7 @@ export class TableDataService {
   }
 
   showCreateDialog(columns: IColumnDefinition[]) {
-    return this.dialogService.open(ProductsDialog, {
+    return this.dialogService.open(ReusableTableDialog, {
       header: 'Create New Record',
       width: '300px',
       data: {
@@ -145,7 +145,7 @@ export class TableDataService {
   }
 
   showUpdateDialog(columns: IColumnDefinition[], record: any) {
-    return this.dialogService.open(ProductsDialog, {
+    return this.dialogService.open(ReusableTableDialog, {
       header: 'Update Record',
       width: '300px',
       data: {

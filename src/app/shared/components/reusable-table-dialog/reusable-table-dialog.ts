@@ -1,20 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { TableDataService } from '../../../../shared/services/table-data.service';
 import { MessageService } from 'primeng/api';
-import { IColumnDefinition } from '../../../../shared/interfaces/column-definition.model';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { IColumnDefinition } from '../../interfaces/column-definition.model';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-products-dialog',
+  selector: 'app-reusable-table-dialog',
   imports: [FormsModule, InputTextModule, ButtonModule],
-  templateUrl: './products-dialog.html',
-  styleUrl: './products-dialog.css',
+  templateUrl: './reusable-table-dialog.html',
+  styleUrl: './reusable-table-dialog.css',
 })
-export class ProductsDialog {
+export class ReusableTableDialog {
   private config = inject(DynamicDialogConfig);
   private dialogRef = inject(DynamicDialogRef);
   private messageService = inject(MessageService);
