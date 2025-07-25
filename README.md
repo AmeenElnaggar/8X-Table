@@ -1,59 +1,56 @@
-# TestProject
+## 8X-Table
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+A dynamic and reusable data table built with **Angular** and **PrimeNG**.  
+This project provides a flexible way to render tables dynamically by retrieving both column definitions and data from the database.  
+It supports full **CRUD operations** using dynamic dialogs and leverages PrimeNG’s table and dialog components.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
+- Dynamic table with configurable columns and data
+- Create, Update, Delete operations via dynamic dialogs
+- Global and per-column filtering
+- Modular structure with reusable components
+- Custom cell templates with `ngTemplateOutlet` support
+- Reactive integration with backend (JSON Server)
+
+---
+
+## Tech Stack
+
+- Angular20
+- PrimeNG20
+- TypeScript
+- JSON Server (for local database mocking)
+
+---
+
+## Getting Started
+
+### 1. Install dependencies
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+Ensure you have json-server installed globally.
 ```bash
-ng generate component component-name
+npm install -g json-server
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 2. Run the Angular application
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
-
-To build the project run:
-
+### 3. Start the mock backend (JSON Server)
 ```bash
-ng build
+json-server --watch db.json
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Notes
+The reusable table can render any dataset passed to it via input() bindings.
+Custom templates for specific columns can be passed using ngTemplateOutlet.
+Designed to be easily extendable to support pagination, sorting, or other PrimeNG features.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
