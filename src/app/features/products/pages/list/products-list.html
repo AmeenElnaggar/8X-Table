@@ -1,0 +1,85 @@
+<p-toast></p-toast>
+
+@if (loading()) {
+<div class="custom-loader-overlay">
+  <div class="custom-loader"></div>
+</div>
+} @else if (error()) {
+<div class="error-message">{{ error() }}</div>
+} @else {
+<app-table-header
+  (createClicked)="onShowCreateDialog()"
+  (searchInput)="onFilterGlobal($event)"
+/>
+
+<p-table
+  #dt
+  [value]="records()"
+  [resizableColumns]="true"
+  [responsiveLayout]="'scroll'"
+  [scrollable]="true"
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 20, 50]"
+  selectionMode="single"
+  (onRowSelect)="onRowSelectEvent($event)"
+>
+  <!-- Table Header -->
+  <ng-template #header>
+    <tr>
+      @for (col of columns(); track col.field) {
+      <th [pSortableColumn]="col.sortable ? col.field : undefined">
+        {{ col.header }}
+        @if (col.sortable) {
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+        } @if (col.filterable) {
+        <p-columnFilter
+          type="text"
+          [field]="col.field"
+          placeholder="Filter by {{ col.header }}"
+          ariaLabel="Filter {{ col.header }}"
+          display="menu"
+          styleClass="select-filter"
+        ></p-columnFilter>
+        }
+      </th>
+      }
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+
+  <!-- Table Body -->
+  <ng-template #body let-record>
+    <tr [pSelectableRow]="record">
+      @for (col of columns(); track $index) {
+      <td>
+        {{ record[col.field] }}
+      </td>
+      }
+      <td>
+        <button
+          pButton
+          icon="pi pi-eye"
+          class="p-button-text p-button-sm text-primary"
+          (click)="onShowViewDialog(record)"
+        ></button>
+
+        <button
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-text p-button-sm text-primary"
+          (click)="onShowUpdateDialog(record)"
+        ></button>
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-text p-button-sm text-danger"
+          (click)="confirmDelete(record.id)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+}
+
+<p-confirmDialog></p-confirmDialog>
