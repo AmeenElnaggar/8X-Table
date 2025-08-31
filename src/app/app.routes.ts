@@ -1,11 +1,14 @@
 import { Routes } from '@angular/router';
+import { ProductsList } from './features/products/pages/list/list';
+import { OrdersList } from './features/orders/pages/list/list';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadComponent: () =>
-      import('./shared/components/table/table').then(
-        (response) => response.Table
-      ),
+    path: 'products',
+    component: ProductsList,
+  },
+  {
+    path: 'orders',
+    component: OrdersList,
   },
 ];

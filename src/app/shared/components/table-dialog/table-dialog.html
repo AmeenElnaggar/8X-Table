@@ -11,11 +11,22 @@
       [id]="col.field"
       [type]="col?.type || 'text'"
       [(ngModel)]="record()[col.field]"
+      [disabled]="mode() === 'view'"
     />
   </div>
 </ng-container>
 } }
+
 <div class="p-dialog-footer">
   <button pButton label="Cancel" icon="pi pi-times" (click)="cancel()"></button>
+  @if (mode() !== 'view') {
   <button pButton label="Save" icon="pi pi-check" (click)="save()"></button>
+  } @if (mode() === 'view') {
+  <button
+    pButton
+    label="Reload Table"
+    icon="pi pi-refresh"
+    (click)="onReload()"
+  ></button>
+  }
 </div>

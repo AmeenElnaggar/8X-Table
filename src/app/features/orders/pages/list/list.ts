@@ -41,7 +41,7 @@ import { TableStore } from '../../../../store/table.store';
   templateUrl: './list.html',
   styleUrl: './list.css',
 })
-export class ProductsList {
+export class OrdersList {
   private tableStore = inject(TableStore);
 
   table = viewChild.required<Table>('dt');
@@ -52,10 +52,10 @@ export class ProductsList {
   error = this.tableStore.error;
 
   ngOnInit() {
-    this.tableStore.setContext('products');
+    this.tableStore.setContext('orders');
     this.tableStore.setEndpoints({
-      data: 'products-data',
-      metadata: 'products-metadata',
+      data: 'orders-data',
+      metadata: 'orders-metadata',
     });
     this.tableStore.loadData();
     this.tableStore.loadMetadata();

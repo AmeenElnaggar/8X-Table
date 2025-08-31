@@ -5,6 +5,8 @@ import { IColumnDefinition } from '../../interfaces/column-definition.model';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { NgComponentOutlet } from '@angular/common';
+import { TableStore } from '../../../store/table.store';
 
 @Component({
   selector: 'app-table-dialog',
@@ -16,20 +18,20 @@ export class TableDialog {
   private config = inject(DynamicDialogConfig);
   private dialogRef = inject(DynamicDialogRef);
   private messageService = inject(MessageService);
+  private tableStore = inject(TableStore);
+
+  onReload() {
+    this.tableStore.triggerReload();
+  }
 
   record = signal<any>({});
   columns = signal<IColumnDefinition[]>([]);
-  mode = signal<'create' | 'update'>('create');
+  mode = signal<'create' | 'update' | 'view'>('create');
 
   ngOnInit() {
     this.columns.set(this.config.data.columns);
     this.mode.set(this.config.data.mode);
-
-    this.record.set(
-      this.config.data.record
-        ? { ...this.config.data.record }
-        : this.createEmptyRecord()
-    );
+    this.record.set(this.config.data.record ?? {});
   }
 
   private isValidRecord(record: any): boolean {

@@ -49,7 +49,7 @@
 
 ::ng-deep .p-dialog-footer .p-button {
   flex: 1;
-  max-width: 160px;
+  /* max-width: 160px; */
   margin-top: 20px;
 }
 

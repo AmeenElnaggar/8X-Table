@@ -1,5 +1,5 @@
 {
-  "metadata": [
+  "products-metadata": [
     {
       "field": "code",
       "header": "Product Code",
@@ -35,10 +35,10 @@
       "id": "m005"
     }
   ],
-  "data": [
+  "products-data": [
     {
       "code": "P001",
-      "title": "Wireless Mouse",
+      "title": "Wireless Mousesss",
       "category": "Accessories",
       "price": "25.9",
       "available": true,
@@ -61,28 +61,12 @@
       "id": "776f"
     },
     {
-      "code": "P004",
-      "title": "Laptop Stand",
-      "category": "Furniture",
-      "price": "324",
-      "available": true,
-      "id": "269f"
-    },
-    {
       "code": "P005",
       "title": "Noise Cancelling Headphones",
       "category": "Audio",
       "price": 120.75,
       "available": false,
       "id": "e2f4"
-    },
-    {
-      "code": "P007",
-      "title": "Webcam 1080p",
-      "category": "Cameras",
-      "price": "65.977",
-      "available": true,
-      "id": "ea29"
     },
     {
       "code": "P008",
@@ -179,6 +163,67 @@
       "price": 599,
       "available": false,
       "id": "f6a0"
+    },
+    {
+      "id": "14b4",
+      "code": "p0099",
+      "title": "test",
+      "category": "test",
+      "price": "12",
+      "available": "true"
+    }
+  ],
+  "orders-metadata": [
+    {
+      "field": "orderId",
+      "header": "Order ID",
+      "sortable": true,
+      "id": "o001"
+    },
+    {
+      "field": "customerName",
+      "header": "Customer Name",
+      "sortable": true,
+      "filterable": true,
+      "id": "o002"
+    },
+    {
+      "field": "orderDate",
+      "header": "Order Date",
+      "sortable": false,
+      "filterable": true,
+      "id": "o003"
+    },
+    {
+      "field": "total",
+      "header": "Total Amount",
+      "sortable": true,
+      "filterable": false,
+      "id": "o004"
+    },
+    {
+      "field": "status",
+      "header": "Status",
+      "sortable": false,
+      "filterable": true,
+      "id": "o005"
+    }
+  ],
+  "orders-data": [
+    {
+      "orderId": "O002",
+      "customerName": "Sara Mohamed",
+      "orderDate": "2025-08-15",
+      "total": 229.9,
+      "status": "Delivered",
+      "id": "ord002"
+    },
+    {
+      "id": "858f",
+      "orderId": "O002",
+      "customerName": "Ameen",
+      "total": "222",
+      "status": "Delivered"
     }
   ]
 }

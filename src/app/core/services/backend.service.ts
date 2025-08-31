@@ -8,23 +8,28 @@ export class BackendService {
   private httpClient = inject(HttpClient);
   private apiUrl = 'http://localhost:3000';
 
-  getMetadata(): Observable<any[]> {
-    return this.httpClient.get<IColumnDefinition[]>(`${this.apiUrl}/metadata`);
+  getMetadata(endpoint: string): Observable<IColumnDefinition[]> {
+    return this.httpClient.get<IColumnDefinition[]>(
+      `${this.apiUrl}/${endpoint}`
+    );
   }
 
-  getData(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}/data`);
+  getData(endpoint: string): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}/${endpoint}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.apiUrl}/data`, data);
+  create(endpoint: string, data: any): Observable<any> {
+    return this.httpClient.post<any>(`${this.apiUrl}/${endpoint}`, data);
   }
 
-  update(data: any): Observable<any> {
-    return this.httpClient.put<any>(`${this.apiUrl}/data/${data.id}`, data);
+  update(endpoint: string, data: any): Observable<any> {
+    return this.httpClient.put<any>(
+      `${this.apiUrl}/${endpoint}/${data.id}`,
+      data
+    );
   }
 
-  delete(id: any): Observable<any> {
-    return this.httpClient.delete<void>(`${this.apiUrl}/data/${id}`);
+  delete(endpoint: string, id: any): Observable<any> {
+    return this.httpClient.delete<void>(`${this.apiUrl}/${endpoint}/${id}`);
   }
 }
