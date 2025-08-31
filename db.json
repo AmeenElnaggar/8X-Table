@@ -217,13 +217,6 @@
       "total": 229.9,
       "status": "Delivered",
       "id": "ord002"
-    },
-    {
-      "id": "858f",
-      "orderId": "O002",
-      "customerName": "Ameen",
-      "total": "222",
-      "status": "Delivered"
     }
   ]
 }
